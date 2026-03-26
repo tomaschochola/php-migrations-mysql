@@ -6,7 +6,7 @@
   },
   "bugs": {
     "email": "tomaschochola@tomaschochola.cz",
-    "url": "https://github.com/tomaschochola/php-migrations/issues"
+    "url": "https://github.com/tomaschochola/php-migrations-mysql/issues"
   },
   "contributors": [
     {
@@ -15,7 +15,7 @@
       "url": "https://github.com/tomaschochola"
     }
   ],
-  "description": "@tomaschochola/php-migrations",
+  "description": "@tomaschochola/php-migrations-mysql",
   "devDependencies": {
     "@tomaschochola/ts-tooling-eslint-config": "github:tomaschochola/ts-tooling-eslint-config#1.x",
     "@tomaschochola/ts-tooling-prettier-config": "github:tomaschochola/ts-tooling-prettier-config#1.x"
@@ -24,17 +24,17 @@
     "type": "github",
     "url": "https://github.com/sponsors/tomaschochola"
   },
-  "homepage": "https://github.com/tomaschochola/php-migrations",
+  "homepage": "https://github.com/tomaschochola/php-migrations-mysql",
   "keywords": [
     "tomaschochola",
     "TomasChochola",
     "Tomas Chochola",
     "Tomáš Chochola",
-    "php-migrations"
+    "php-migrations-mysql"
   ],
   "license": "CC-BY-ND-4.0",
-  "name": "@tomaschochola/php-migrations",
-  "repository": "github:tomaschochola/php-migrations",
+  "name": "@tomaschochola/php-migrations-mysql",
+  "repository": "github:tomaschochola/php-migrations-mysql",
   "sideEffects": false,
   "type": "module"
 }

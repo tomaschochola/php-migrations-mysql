@@ -9,7 +9,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "TomasChochola\\Migrations\\": "./src"
+      "TomasChochola\\Migrations\\Mysql\\": "./src"
     }
   },
   "autoload-dev": {
@@ -26,24 +26,24 @@
     "process-timeout": 0,
     "sort-packages": true
   },
-  "description": "tomaschochola/php-migrations",
+  "description": "tomaschochola/php-migrations-mysql",
   "funding": [
     {
       "type": "github",
       "url": "https://github.com/sponsors/tomaschochola"
     }
   ],
-  "homepage": "https://github.com/tomaschochola/php-migrations",
+  "homepage": "https://github.com/tomaschochola/php-migrations-mysql",
   "keywords": [
     "tomaschochola",
     "TomasChochola",
     "Tomas Chochola",
     "Tomáš Chochola",
-    "php-migrations"
+    "php-migrations-mysql"
   ],
   "license": "CC-BY-ND-4.0",
   "minimum-stability": "dev",
-  "name": "tomaschochola/php-migrations",
+  "name": "tomaschochola/php-migrations-mysql",
   "prefer-stable": true,
   "readme": "./README.md",
   "repositories": [
@@ -60,13 +60,20 @@
     {
       "no-api": true,
       "type": "git",
-      "url": "https://github.com/tomaschochola/php-pdo.git"
+      "url": "https://github.com/tomaschochola/php-database.git"
+    },
+    {
+      "no-api": true,
+      "type": "git",
+      "url": "https://github.com/tomaschochola/php-migrations.git"
     }
   ],
   "require": {
+    "ext-pdo_mysql": "*",
     "php": "^8.5.0",
     "psr/log": "^3.0",
-    "tomaschochola/php-pdo": "^1.0@dev"
+    "tomaschochola/php-migrations": "^1.0@dev",
+    "tomaschochola/php-database": "^1.0@dev"
   },
   "require-dev": {
     "ext-intl": "*",
@@ -79,10 +86,10 @@
     "tomaschochola/php-tooling-phpstan-config": "^1.0@dev"
   },
   "support": {
-    "docs": "https://github.com/tomaschochola/php-migrations",
+    "docs": "https://github.com/tomaschochola/php-migrations-mysql",
     "email": "tomaschochola@tomaschochola.cz",
-    "issues": "https://github.com/tomaschochola/php-migrations/issues",
-    "source": "https://github.com/tomaschochola/php-migrations.git"
+    "issues": "https://github.com/tomaschochola/php-migrations-mysql/issues",
+    "source": "https://github.com/tomaschochola/php-migrations-mysql.git"
   },
   "type": "library"
 }
