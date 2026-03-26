@@ -69,7 +69,6 @@
     }
   ],
   "require": {
-    "ext-pdo_mysql": "*",
     "php": "^8.5.0",
     "psr/log": "^3.0",
     "tomaschochola/php-migrations": "^1.0@dev",
