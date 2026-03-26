@@ -27,6 +27,7 @@ use TomasChochola\Pdo\QueryInterface;
 readonly class MysqlMigrations implements MigrationsInterface
 {
     public readonly LoggerInterface $logger;
+
     public readonly QueryInterface $query;
 
     public function __construct(QueryInterface $query, LoggerInterface $logger)
