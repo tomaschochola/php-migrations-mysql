@@ -18,6 +18,7 @@ namespace TomasChochola\Migrations\Mysql;
 use NoDiscard;
 use Override;
 use Psr\Log\LoggerInterface;
+use Stringable;
 use TomasChochola\Migrations\MigrationsInterface;
 use TomasChochola\Pdo\QueryInterface;
 
@@ -26,9 +27,9 @@ use TomasChochola\Pdo\QueryInterface;
  */
 readonly class MysqlMigrations implements MigrationsInterface
 {
-    private readonly LoggerInterface $logger;
+    private LoggerInterface $logger;
 
-    private readonly QueryInterface $query;
+    private QueryInterface $query;
 
     public function __construct(QueryInterface $query, LoggerInterface $logger)
     {
@@ -36,15 +37,40 @@ readonly class MysqlMigrations implements MigrationsInterface
         $this->logger = $logger;
     }
 
-    #[NoDiscard]
-    #[Override]
+    #[Override()]
+    public function end(): void
+    {
+    }
+
+    #[Override()]
+    public function execute(Stringable | string $sql): void
+    {
+        $this->query->run($sql);
+    }
+
+    #[NoDiscard()]
+    #[Override()]
     public function has(string $selector): bool
     {
         return $this->query->int('SELECT COUNT(*) FROM migrations WHERE selector = ?', [$selector]) > 0;
     }
 
-    #[Override]
     public function init(): void
+    {
+        $this->start();
+    }
+
+    #[Override()]
+    public function mark(string $selector): void
+    {
+        $sql = 'INSERT INTO migrations (selector) VALUES (?)';
+
+        $this->logger->notice('migrator.sql', ['selector' => $selector, 'sql' => $sql]);
+        $this->query->run($sql, [$selector]);
+    }
+
+    #[Override()]
+    public function start(): void
     {
         $sql = <<<'SQL'
             CREATE TABLE IF NOT EXISTS `migrations` (
@@ -57,14 +83,5 @@ readonly class MysqlMigrations implements MigrationsInterface
 
         $this->logger->notice('migrator.sql', ['selector' => 'migrations', 'sql' => $sql]);
         $this->query->run($sql);
-    }
-
-    #[Override]
-    public function mark(string $selector): void
-    {
-        $sql = 'INSERT INTO migrations (selector) VALUES (?)';
-
-        $this->logger->notice('migrator.sql', ['selector' => $selector, 'sql' => $sql]);
-        $this->query->run($sql, [$selector]);
     }
 }
