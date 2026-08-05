@@ -15,10 +15,10 @@
       "url": "https://github.com/tomaschochola"
     }
   ],
-  "description": "@tomaschochola/php-migrations-mysql",
+  "description": "MySQL migration storage and execution for tomaschochola/php-migrations.",
   "devDependencies": {
-    "@tomaschochola/tooling-eslint": "github:tomaschochola/tooling-eslint#1.x",
-    "@tomaschochola/tooling-prettier": "github:tomaschochola/tooling-prettier#1.x",
+    "@tomaschochola/tooling-eslint": "github:tomaschochola/tooling-eslint#2.x",
+    "@tomaschochola/tooling-prettier": "github:tomaschochola/tooling-prettier#2.x",
     "@tomaschochola/tooling-trimmer": "github:tomaschochola/tooling-trimmer#2.x"
   },
   "funding": {
@@ -28,16 +28,18 @@
   "homepage": "https://github.com/tomaschochola/php-migrations-mysql",
   "keywords": [
     "tomaschochola",
-    "TomasChochola",
-    "Tomas Chochola",
-    "Tomáš Chochola",
-    "php-migrations-mysql"
+    "database",
+    "migration",
+    "mysql",
+    "schema"
   ],
   "license": "CC-BY-ND-4.0",
   "name": "@tomaschochola/php-migrations-mysql",
   "private": true,
-  "repository": "github:tomaschochola/php-migrations-mysql",
-  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomaschochola/php-migrations-mysql.git"
+  },
   "type": "module",
   "version": "0.0.0"
 }

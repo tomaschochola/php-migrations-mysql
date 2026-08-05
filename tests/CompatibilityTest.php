@@ -25,8 +25,6 @@ use TomasChochola\Migrations\MigrationsInterface;
 use TomasChochola\Migrations\Mysql\MysqlMigrations;
 use TomasChochola\Pdo\QueryInterface;
 
-use function str_contains;
-
 /**
  * @internal
  *
@@ -34,7 +32,7 @@ use function str_contains;
  */
 #[CoversClass(MysqlMigrations::class)]
 #[Small()]
-class CompatibilityTest extends TestCase
+final class CompatibilityTest extends TestCase
 {
     #[Test()]
     public function currentAndLegacyContractsRemainAvailable(): void
@@ -43,6 +41,17 @@ class CompatibilityTest extends TestCase
 
         self::assertTrue($class->implementsInterface(MigrationsInterface::class));
         self::assertTrue($class->hasMethod('init'));
+    }
+
+    #[Test()]
+    public function endingMigrationStorageHasNoAdditionalSideEffects(): void
+    {
+        $query = $this->createMock(QueryInterface::class);
+        $logger = $this->createMock(LoggerInterface::class);
+
+        $query->expects($this->never())->method('run')->seal();
+        $logger->expects($this->never())->method('log')->seal();
+        (new MysqlMigrations($query, $logger))->end();
     }
 
     #[Test()]
@@ -56,14 +65,74 @@ class CompatibilityTest extends TestCase
     #[Test()]
     public function legacyInitCreatesTheMigrationsTable(): void
     {
+        $query = self::createStub(QueryInterface::class);
+        $logger = self::createStub(LoggerInterface::class);
+        $queries = [];
+        $records = [];
+
+        $query->method('run')->willReturnCallback(static function (Stringable | string $sql, array $params = []) use (&$queries): void {
+            $queries[] = [(string) $sql, $params];
+        });
+
+        $logger->method('notice')->willReturnCallback(static function (Stringable | string $message, array $context = []) use (&$records): void {
+            $records[] = [(string) $message, $context];
+        });
+
+        (new MysqlMigrations($query, $logger))->init();
+
+        self::assertCount(1, $queries);
+        self::assertSame([], $queries[0][1]);
+        self::assertStringContainsString('CREATE TABLE IF NOT EXISTS `migrations`', $queries[0][0]);
+
+        self::assertSame([
+            ['migrator.sql', ['selector' => 'migrations', 'sql' => $queries[0][0]]],
+        ], $records);
+    }
+
+    #[Test()]
+    public function markingMigrationExecutesAndLogsTheSelector(): void
+    {
         $query = $this->createMock(QueryInterface::class);
+        $logger = $this->createMock(LoggerInterface::class);
 
         $query
             ->expects($this->once())
             ->method('run')
-            ->with(self::callback(static fn(Stringable | string $sql): bool => str_contains((string) $sql, 'CREATE TABLE IF NOT EXISTS `migrations`')))
+            ->with('INSERT INTO migrations (selector) VALUES (?)', ['migration-1'])
             ->seal();
 
-        (new MysqlMigrations($query, self::createStub(LoggerInterface::class)))->init();
+        $logger
+            ->expects($this->once())
+            ->method('notice')
+            ->with('migrator.sql', [
+                'selector' => 'migration-1',
+                'sql' => 'INSERT INTO migrations (selector) VALUES (?)',
+            ])
+            ->seal();
+
+        (new MysqlMigrations($query, $logger))->mark('migration-1');
+    }
+
+    #[Test()]
+    public function migrationStateIsReadThroughTheCompatibleQueryContract(): void
+    {
+        $calls = [];
+        $query = self::createStub(QueryInterface::class);
+
+        $query->method('int')->willReturnCallback(static function (Stringable | string $sql, array $params) use (&$calls): int {
+            $calls[] = [(string) $sql, $params];
+
+            return $params === ['pending'] ? 0 : 1;
+        });
+
+        $migrations = new MysqlMigrations($query, self::createStub(LoggerInterface::class));
+
+        self::assertFalse($migrations->has('pending'));
+        self::assertTrue($migrations->has('applied'));
+
+        self::assertSame([
+            ['SELECT COUNT(*) FROM migrations WHERE selector = ?', ['pending']],
+            ['SELECT COUNT(*) FROM migrations WHERE selector = ?', ['applied']],
+        ], $calls);
     }
 }

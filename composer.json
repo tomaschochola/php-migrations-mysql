@@ -4,29 +4,39 @@
       "email": "tomaschochola@tomaschochola.cz",
       "homepage": "https://github.com/tomaschochola",
       "name": "Tomáš Chochola",
-      "role": "Author"
+      "role": "Enterprise Architect"
     }
   ],
   "autoload": {
     "psr-4": {
-      "TomasChochola\\Migrations\\Mysql\\": "./src"
+      "TomasChochola\\Migrations\\Mysql\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "./tests"
+      "Tests\\": "tests/"
     }
   },
   "config": {
     "allow-plugins": false,
-    "audit": {
-      "abandoned": "fail"
-    },
     "platform-check": true,
-    "process-timeout": 0,
+    "policy": {
+      "abandoned": {
+        "audit": "fail",
+        "block": true
+      },
+      "advisories": {
+        "audit": "fail",
+        "block": true
+      },
+      "malware": {
+        "audit": "fail",
+        "block": true
+      }
+    },
     "sort-packages": true
   },
-  "description": "tomaschochola/php-migrations-mysql",
+  "description": "MySQL migration storage and execution for tomaschochola/php-migrations.",
   "funding": [
     {
       "type": "github",
@@ -36,35 +46,34 @@
   "homepage": "https://github.com/tomaschochola/php-migrations-mysql",
   "keywords": [
     "tomaschochola",
-    "TomasChochola",
-    "Tomas Chochola",
-    "Tomáš Chochola",
-    "php-migrations-mysql"
+    "database",
+    "migration",
+    "mysql",
+    "schema"
   ],
   "license": "CC-BY-ND-4.0",
-  "minimum-stability": "dev",
   "name": "tomaschochola/php-migrations-mysql",
   "prefer-stable": true,
   "repositories": [
     {
       "no-api": true,
-      "type": "git",
-      "url": "https://github.com/tomaschochola/tooling-phpstan.git"
-    },
-    {
-      "no-api": true,
-      "type": "git",
-      "url": "https://github.com/tomaschochola/tooling-php-cs-fixer.git"
-    },
-    {
-      "no-api": true,
-      "type": "git",
+      "type": "vcs",
       "url": "https://github.com/tomaschochola/php-database-mysql.git"
     },
     {
       "no-api": true,
-      "type": "git",
+      "type": "vcs",
       "url": "https://github.com/tomaschochola/php-migrations.git"
+    },
+    {
+      "no-api": true,
+      "type": "vcs",
+      "url": "https://github.com/tomaschochola/tooling-php-cs-fixer.git"
+    },
+    {
+      "no-api": true,
+      "type": "vcs",
+      "url": "https://github.com/tomaschochola/tooling-phpstan.git"
     }
   ],
   "require": {
@@ -84,7 +93,6 @@
     "tomaschochola/tooling-phpstan": "^1.0@dev"
   },
   "support": {
-    "docs": "https://github.com/tomaschochola/php-migrations-mysql",
     "email": "tomaschochola@tomaschochola.cz",
     "issues": "https://github.com/tomaschochola/php-migrations-mysql/issues",
     "source": "https://github.com/tomaschochola/php-migrations-mysql.git"
