@@ -79,8 +79,8 @@
   "require": {
     "php": "^8.5.0",
     "psr/log": "^3.0",
-    "tomaschochola/php-database-mysql": "^1.0@dev",
-    "tomaschochola/php-migrations": "^1.0@dev"
+    "tomaschochola/php-database-mysql": "^2.0@dev",
+    "tomaschochola/php-migrations": "^2.0@dev"
   },
   "require-dev": {
     "ext-intl": "*",
@@ -89,8 +89,8 @@
     "ext-zip": "*",
     "phpunit/phpunit": "^13.0",
     "roave/security-advisories": "dev-latest",
-    "tomaschochola/tooling-php-cs-fixer": "^1.0@dev",
-    "tomaschochola/tooling-phpstan": "^1.0@dev"
+    "tomaschochola/tooling-php-cs-fixer": "^2.0@dev",
+    "tomaschochola/tooling-phpstan": "^2.0@dev"
   },
   "support": {
     "email": "tomaschochola@tomaschochola.cz",
