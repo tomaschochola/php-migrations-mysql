@@ -62,12 +62,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomaschochola/php-database-mysql.git",
-                "reference": "6b217c76b4814ff8898e58b26e5faf3be0b6c12d"
+                "reference": "bfe5b945eeebb7544fec747b1b572f426be861eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomaschochola/php-database-mysql/zipball/6b217c76b4814ff8898e58b26e5faf3be0b6c12d",
-                "reference": "6b217c76b4814ff8898e58b26e5faf3be0b6c12d",
+                "url": "https://api.github.com/repos/tomaschochola/php-database-mysql/zipball/bfe5b945eeebb7544fec747b1b572f426be861eb",
+                "reference": "bfe5b945eeebb7544fec747b1b572f426be861eb",
                 "shasum": ""
             },
             "require": {
@@ -83,8 +83,8 @@
                 "ext-zip": "*",
                 "phpunit/phpunit": "^13.0",
                 "roave/security-advisories": "dev-latest",
-                "tomaschochola/tooling-php-cs-fixer": "^1.0@dev",
-                "tomaschochola/tooling-phpstan": "^1.0@dev"
+                "tomaschochola/tooling-php-cs-fixer": "^2.0@dev",
+                "tomaschochola/tooling-phpstan": "^2.0@dev"
             },
             "type": "library",
             "autoload": {
@@ -106,12 +106,15 @@
                     "email": "tomaschochola@tomaschochola.cz",
                     "homepage": "https://github.com/tomaschochola",
                     "name": "Tomáš Chochola",
-                    "role": "Enterprise Architect"
+                    "role": "Author"
                 }
             ],
             "description": "Typed PDO primitives for MySQL queries, settings, and advisory locks.",
             "homepage": "https://github.com/tomaschochola/php-database-mysql",
             "keywords": [
+                "Tomas Chochola",
+                "TomasChochola",
+                "Tomáš Chochola",
                 "database",
                 "locking",
                 "mysql",
@@ -129,7 +132,7 @@
                     "url": "https://github.com/sponsors/tomaschochola"
                 }
             ],
-            "time": "2026-08-05T10:28:45+00:00"
+            "time": "2026-08-05T21:42:11+00:00"
         },
         {
             "name": "tomaschochola/php-migrations",
@@ -137,12 +140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomaschochola/php-migrations.git",
-                "reference": "a26a3c50a458f2b8bc125626b04ec58983cb5e07"
+                "reference": "25b4707365d2dee60cac5ca5f55072a12ba10163"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomaschochola/php-migrations/zipball/a26a3c50a458f2b8bc125626b04ec58983cb5e07",
-                "reference": "a26a3c50a458f2b8bc125626b04ec58983cb5e07",
+                "url": "https://api.github.com/repos/tomaschochola/php-migrations/zipball/25b4707365d2dee60cac5ca5f55072a12ba10163",
+                "reference": "25b4707365d2dee60cac5ca5f55072a12ba10163",
                 "shasum": ""
             },
             "require": {
@@ -156,8 +159,8 @@
                 "ext-zip": "*",
                 "phpunit/phpunit": "^13.0",
                 "roave/security-advisories": "dev-latest",
-                "tomaschochola/tooling-php-cs-fixer": "^1.0@dev",
-                "tomaschochola/tooling-phpstan": "^1.0@dev"
+                "tomaschochola/tooling-php-cs-fixer": "^2.0@dev",
+                "tomaschochola/tooling-phpstan": "^2.0@dev"
             },
             "type": "library",
             "autoload": {
@@ -178,12 +181,15 @@
                     "email": "tomaschochola@tomaschochola.cz",
                     "homepage": "https://github.com/tomaschochola",
                     "name": "Tomáš Chochola",
-                    "role": "Enterprise Architect"
+                    "role": "Author"
                 }
             ],
             "description": "Migration contracts and deterministic migration orchestration for PHP applications.",
             "homepage": "https://github.com/tomaschochola/php-migrations",
             "keywords": [
+                "Tomas Chochola",
+                "TomasChochola",
+                "Tomáš Chochola",
                 "database",
                 "migration",
                 "migrations",
@@ -201,7 +207,7 @@
                     "url": "https://github.com/sponsors/tomaschochola"
                 }
             ],
-            "time": "2026-08-05T10:28:45+00:00"
+            "time": "2026-08-05T21:42:11+00:00"
         }
     ],
     "packages-dev": [
@@ -6604,12 +6610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomaschochola/tooling-php-cs-fixer.git",
-                "reference": "9fef366b49cef71e399279a79f4c4059b4398186"
+                "reference": "b533e98ffcf3784b2d48700270a105fcd072f3ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomaschochola/tooling-php-cs-fixer/zipball/9fef366b49cef71e399279a79f4c4059b4398186",
-                "reference": "9fef366b49cef71e399279a79f4c4059b4398186",
+                "url": "https://api.github.com/repos/tomaschochola/tooling-php-cs-fixer/zipball/b533e98ffcf3784b2d48700270a105fcd072f3ef",
+                "reference": "b533e98ffcf3784b2d48700270a105fcd072f3ef",
                 "shasum": ""
             },
             "require": {
@@ -6623,7 +6629,7 @@
                 "ext-zip": "*",
                 "phpunit/phpunit": "^13.0",
                 "roave/security-advisories": "dev-latest",
-                "tomaschochola/tooling-phpstan": "^1.0@dev"
+                "tomaschochola/tooling-phpstan": "^2.0@dev"
             },
             "type": "library",
             "autoload": {
@@ -6644,12 +6650,15 @@
                     "email": "tomaschochola@tomaschochola.cz",
                     "homepage": "https://github.com/tomaschochola",
                     "name": "Tomáš Chochola",
-                    "role": "Enterprise Architect"
+                    "role": "Author"
                 }
             ],
             "description": "Shared PHP CS Fixer configuration and custom coding-standard fixers for PHP 8.5.",
             "homepage": "https://github.com/tomaschochola/tooling-php-cs-fixer",
             "keywords": [
+                "Tomas Chochola",
+                "TomasChochola",
+                "Tomáš Chochola",
                 "code-style",
                 "coding-standard",
                 "php-cs-fixer",
@@ -6667,7 +6676,7 @@
                     "url": "https://github.com/sponsors/tomaschochola"
                 }
             ],
-            "time": "2026-08-05T10:28:47+00:00"
+            "time": "2026-08-05T21:42:12+00:00"
         },
         {
             "name": "tomaschochola/tooling-phpstan",
@@ -6675,12 +6684,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomaschochola/tooling-phpstan.git",
-                "reference": "5b874cfaae6db68c2f89a5c1f804f9ab0499dbf6"
+                "reference": "2d994046aeda75cc1c0b5d7c0fd01d565c0be1c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomaschochola/tooling-phpstan/zipball/5b874cfaae6db68c2f89a5c1f804f9ab0499dbf6",
-                "reference": "5b874cfaae6db68c2f89a5c1f804f9ab0499dbf6",
+                "url": "https://api.github.com/repos/tomaschochola/tooling-phpstan/zipball/2d994046aeda75cc1c0b5d7c0fd01d565c0be1c5",
+                "reference": "2d994046aeda75cc1c0b5d7c0fd01d565c0be1c5",
                 "shasum": ""
             },
             "require": {
@@ -6713,12 +6722,15 @@
                     "email": "tomaschochola@tomaschochola.cz",
                     "homepage": "https://github.com/tomaschochola",
                     "name": "Tomáš Chochola",
-                    "role": "Enterprise Architect"
+                    "role": "Author"
                 }
             ],
             "description": "Shared strict PHPStan 2 configuration for PHP 8.5 libraries and applications.",
             "homepage": "https://github.com/tomaschochola/tooling-phpstan",
             "keywords": [
+                "Tomas Chochola",
+                "TomasChochola",
+                "Tomáš Chochola",
                 "phpstan",
                 "static-analysis",
                 "tomaschochola",
@@ -6735,7 +6747,7 @@
                     "url": "https://github.com/sponsors/tomaschochola"
                 }
             ],
-            "time": "2026-08-05T10:28:47+00:00"
+            "time": "2026-08-05T21:42:12+00:00"
         }
     ],
     "aliases": [],
