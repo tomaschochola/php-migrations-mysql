@@ -21,9 +21,9 @@ use PHPUnit\Framework\Attributes\Test;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use Stringable;
+use TomasChochola\Database\Mysql\Contract\QueryInterface;
 use TomasChochola\Migrations\MigrationsInterface;
 use TomasChochola\Migrations\Mysql\MysqlMigrations;
-use TomasChochola\Pdo\QueryInterface;
 
 /**
  * @internal

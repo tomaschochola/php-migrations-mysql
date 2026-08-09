@@ -19,8 +19,8 @@ use NoDiscard;
 use Override;
 use Psr\Log\LoggerInterface;
 use Stringable;
+use TomasChochola\Database\Mysql\Contract\QueryInterface;
 use TomasChochola\Migrations\MigrationsInterface;
-use TomasChochola\Pdo\QueryInterface;
 
 /**
  * @no-named-arguments
