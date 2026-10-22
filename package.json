@@ -31,10 +31,7 @@
         "TomasChochola",
         "Tomas Chochola",
         "Tomáš Chochola",
-        "database",
-        "migration",
-        "mysql",
-        "schema"
+        "php-migrations-mysql"
     ],
     "license": "CC-BY-ND-4.0",
     "name": "@tomaschochola/php-migrations-mysql",
